@@ -1,56 +1,313 @@
+/* --- Global Styles --- */
+:root {
+    --primary-teal: #00a699;
+    --dark-grey: #333;
+    --medium-grey: #666;
+    --light-grey: #f9fafb;
+    --border-color: #e5e7eb;
+    --font-main: 'Inter', 'Noto Sans KR', -apple-system,
+                 BlinkMacSystemFont, 'Segoe UI',
+                 Roboto, Helvetica, Arial, sans-serif;
+    /* --font-main: 'Google Sans', 'Noto Sans KR', sans-serif; */
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
 body {
-  font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial;
-  max-width: 900px;
-  margin: auto;
-  padding: 40px 20px;
-  line-height: 1.6;
-  color: #222;
+    font-family: var(--font-main);
+    color: var(--dark-grey);
+    line-height: 1.7;
+    background-color: #ffffff;
 }
 
+.container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 0 30px;
+}
+
+/* --- Hero Section --- */
 .hero {
-  text-align: center;
-  margin-bottom: 60px;
+    padding: 100px 0 60px;
+    text-align: center;
+    background: radial-gradient(circle at center, #ffffff 0%, #fcfcfc 100%);
+    border-bottom: 1px solid var(--border-color);
 }
 
-.hero h1 {
-  font-size: 2.5em;
+.paper-title {
+    font-size: 2.8rem;
+    font-weight: 700;
+    line-height: 1.2;
+    margin-bottom: 25px;
+    letter-spacing: -0.5px;
 }
 
-.hero h2 {
-  font-weight: 400;
-  color: #555;
+.highlight {
+    color: var(--primary-teal);
 }
 
 .authors {
-  margin-top: 10px;
+    font-size: 1.1rem;
+    color: var(--medium-grey);
+    margin-bottom: 10px;
 }
 
-.buttons {
-  margin-top: 20px;
+.venue {
+    font-size: 1.0rem;
+    color: #999;
+    font-weight: 500;
+    margin-bottom: 40px;
+}
+
+.external-links {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
 }
 
 .btn {
-  display: inline-block;
-  margin: 5px;
-  padding: 10px 16px;
-  border: 1px solid #333;
-  border-radius: 6px;
-  text-decoration: none;
-  color: #333;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+
+    padding: 14px 28px;
+    border-radius: 999px; /* 캡슐 */
+
+    background: rgba(255, 255, 255, 0.08);
+    color: #111827;
+
+    font-weight: 600;
+    font-size: 0.95rem;
+    letter-spacing: -0.01em;
+
+    text-decoration: none;
+
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+
+    box-shadow:
+        inset 0 1px 0 rgba(255,255,255,0.15),
+        0 6px 20px rgba(0,0,0,0.25);
+
+    transition: all 0.25s ease;
 }
 
-section {
-  margin-bottom: 60px;
+.btn:hover {
+    transform: translateY(-3px);
+
+    background: rgba(255, 255, 255, 0.14);
+
+    box-shadow:
+        inset 0 1px 0 rgba(255,255,255,0.25),
+        0 12px 30px rgba(0,0,0,0.35);
+
+    border-color: rgba(255,255,255,0.3);
 }
 
-.figure {
-  width: 100%;
-  margin: 20px 0;
-  border-radius: 8px;
+/* --- Section Layout --- */
+.section {
+    padding: 80px 0;
+    border-bottom: 1px solid #f0f0f0;
 }
 
-footer {
-  text-align: center;
-  color: #777;
-  margin-top: 80px;
+/* Method 섹션 배경 수정: 흰색 유지하되 명암 대비 */
+.section.light-grey {
+    background-color: #ffffff; /* 배경은 흰색 */
+    box-shadow: inset 0 20px 40px rgba(0,0,0,0.02), inset 0 -20px 40px rgba(0,0,0,0.02); /* 내부 그림자로 대비 */
+    border-top: 1px solid var(--border-color);
+    border-bottom: 1px solid var(--border-color);
+}
+
+.section-title {
+    font-size: 2.2rem;
+    font-weight: 700;
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.section-title::after {
+    content: "";
+    display: block;
+    width: 50px;
+    height: 4px;
+    background-color: var(--primary-teal);
+    margin: 15px auto 0;
+}
+
+/* --- Content Elements --- */
+.abstract-box {
+    background: #fff;
+    padding: 40px;
+    border-radius: 16px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.04);
+    border: 1px solid var(--border-color);
+    text-align: justify;
+    font-size: 1.1rem;
+}
+
+.paragraph {
+    margin-bottom: 20px;
+    font-size: 1.05rem;
+    text-align: justify;
+}
+
+/* --- Figure & Image Control --- */
+.figure-container {
+    text-align: center;
+    margin: 40px 0;
+}
+
+.responsive-img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 12px;
+}
+
+/* 특정 이미지 크기 축소 요청 반영 */
+.small-width {
+    max-width: 75%; /* 기본보다 작게 조정 */
+    margin: 0 auto;
+}
+
+.border-img {
+    border: 1px solid var(--border-color);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+}
+
+.caption {
+    font-size: 0.9rem;
+    color: var(--medium-grey);
+    margin-top: 15px;
+    font-style: italic;
+    padding: 0 10%;
+}
+
+/* --- Grid & Cards --- */
+.grid-2 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+    margin-top: 40px;
+}
+
+.card {
+    background: #fff;
+    padding: 30px;
+    border-radius: 12px;
+    border: 1px solid var(--border-color);
+    transition: transform 0.2s ease;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    border-color: var(--primary-teal);
+}
+
+.card h3 {
+    color: var(--primary-teal);
+    font-size: 1.3rem;
+    margin-bottom: 15px;
+}
+
+.highlight-box {
+    background: #f0fdfa; /* 매우 연한 틸색 배경 */
+    padding: 30px;
+    border-radius: 12px;
+    border-left: 5px solid var(--primary-teal);
+    margin-top: 40px;
+}
+
+.highlight-box h4 {
+    margin-bottom: 15px;
+    color: var(--primary-teal);
+}
+
+.highlight-box ul {
+    padding-left: 20px;
+}
+
+.highlight-box li {
+    margin-bottom: 10px;
+}
+
+/* --- Figure Row (1행 2열 배치) --- */
+.figure-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center; /* 핵심: 자식 요소(이미지 박스)들을 수직 중앙으로 정렬 */
+    gap: 50px;
+    margin: 40px 0;
+}
+
+/* 기본적으로 두 컨테이너에 flex 속성을 부여하되 */
+.figure-row .figure-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0;
+}
+
+/* 첫 번째 컨테이너(좌측)의 비율을 크게 설정 (예: 1.5배) */
+.figure-row .figure-container:first-child {
+    flex: 1.25; 
+}
+
+/* 두 번째 컨테이너(우측)의 비율을 설정 */
+.figure-row .figure-container:last-child {
+    flex: 0.9;
+}
+
+.figure-row img {
+    /* height: 300px; */
+    width: 100%;
+    object-fit: contain; /* 이미지가 잘리지 않으면서 비율을 유지하며 맞춰짐 */
+}
+
+/* 캡션 글자 크기 조정 */
+.figure-row .caption {
+    padding: 0 4%;
+    margin-top: 15px;      /* 이미지와 캡션 사이 간격 유지 */
+}
+
+/* --- Mobile Responsive (모바일에서는 다시 세로로) --- */
+@media (max-width: 768px) {
+    .figure-row {
+        flex-direction: column; /* 세로 배치로 변경 */
+    }
+}
+
+/* Method 섹션 내의 이미지만 부모 너비에 꽉 차도록 설정 */
+section:nth-of-type(3) .figure-container .responsive-img {
+    max-width: 100% !important;
+}
+
+/* --- BibTeX --- */
+.bibtex-box {
+    background-color: #1e1e1e; /* 다크 모드 스타일 */
+    color: #e0e0e0;
+    padding: 25px;
+    border-radius: 10px;
+    font-family: 'Roboto Mono', monospace;
+    font-size: 0.9rem;
+    overflow-x: auto;
+}
+
+/* --- Footer --- */
+.footer {
+    padding: 60px 0;
+    text-align: center;
+    color: #999;
+    font-size: 0.9rem;
+}
+
+/* --- Mobile Responsive --- */
+@media (max-width: 768px) {
+    .paper-title { font-size: 2rem; }
+    .grid-2 { grid-template-columns: 1fr; }
+    .small-width { max-width: 100%; }
 }
