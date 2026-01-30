@@ -150,8 +150,8 @@ def balanced_model_merging(
         group_by_length: bool = False,
         resume_from_checkpoint: str = None,
         round_type: str = "r-1",
-        scaling_coef_list: List[float] = [1.6, 1.2, 1.2, 1.0, 1.0],
-        temp_list: List[float] = [4,3,3,2,1],
+        scaling_coef_list: List[float] = [1.0, 1.0, 1.0, 1.0, 1.0],
+        temp_list: List[float] = [2,2,2,2,2],
         lamda_value: float = 0.3,
 ):
     if int(os.environ.get("LOCAL_RANK", 0)) == 0:
